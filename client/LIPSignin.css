@@ -1,0 +1,72 @@
+/* CSS declarations go here */
+.hidden {
+	display: none;
+}
+
+.welcome {
+	text-align: center;
+	font-weight: lighter;
+  	font-size: 50px;
+  	margin-top: 200px;
+  	color: #555;
+}
+
+.logo {
+	display: block;
+  	width: 300px;
+  	margin: 0 auto;
+  	margin-top: 20px;
+}
+
+.signinForm {
+	position: absolute;
+	width: 548px;
+	left: 50%;
+	margin-left: -278px;
+	bottom: 70px;
+}
+
+.email {
+	display: inline;
+	width: 400px;
+	margin: 0 auto;
+	color: 555;
+
+}
+
+.signinButton {
+	display: inline;
+	margin-top: 50px;
+	padding: 12px 42px;
+  	margin-left: 5px;
+}
+
+#video {
+	width: 480px;
+	border-radius: 480px;
+}
+
+.visitorPhoto {
+	height: 200px;
+	width: 200px;
+}
+
+/* Flat UI Overrides */
+.form-control-orange:focus {
+  border-color: #F27030;
+}
+
+.btn-orange {
+  color: #fff;
+  background-color: #F27030;
+}
+.btn-orange:hover,
+.btn-orange.hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.open > .dropdown-toggle.btn-orange {
+  color: #fff;
+  background-color: #F28830;
+  border-color: #F28830;
+  }

@@ -23,16 +23,19 @@ if (Meteor.isClient) {
           console.log("updated visitor: ", visitor);
           $(".signinForm").prepend($("</p>").text("Welcome back, " + visitor.email + "! This is visit #" + visitor.numVisits + " for you!"));
         } else {
+          // store photo
+          var imageURL = document.getElementById("canvas").toDataURL();
           // create new user
           Visitors.insert({ 
             email: email,
             numVisits: 1,
+            photo: imageURL,
             createdAt: new Date()
           });
           $(".signinForm").prepend($("</p>").text("Welcome, " + email + "! This is your first visit."));
         }
-
         $('.email').val('');
+        e.preventDefault();
       }
     }
   });

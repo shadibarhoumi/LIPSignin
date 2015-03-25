@@ -1,12 +1,15 @@
 <head>
-  <title>LIPSignin</title>
+  <title>StreetCode Signin</title>
 </head>
 
 <body>
-  <h1>Welcome to StreetCode!</h1>
-  <input type="file" accept="image/*;capture=camera">
+	<img class="logo" src="img/logo_sc.png">
+
+  <h1 class="welcome">Sign in to StreetCode.</h1>
+
   {{> signin}}
   {{> photo}}
+
 </body>
 
 <template name="hello">
@@ -16,13 +19,8 @@
 
 <template name="signin">
 	<div class="signinForm">
-		<input class="email" placeholder="email">
-		<button class="signinButton">Sign In</button>
-		<ul>
-			{{#each vistor}}
-				<li>{{email}}</li>
-			{{/each}}
-		</ul>
+		<input class="email form-control form-control-orange" placeholder="Email">
+		<a href="#" class="signinButton btn btn-block btn-lg btn-orange">Sign In</a>
 	</div>
 	
 </template>
