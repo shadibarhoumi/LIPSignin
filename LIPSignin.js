@@ -36,6 +36,51 @@ if (Meteor.isClient) {
       }
     }
   });
+
+  Template.photo.rendered = function() {
+    var canvas = document.getElementById("canvas"),
+        context = canvas.getContext("2d"),
+        video = document.getElementById("video"),
+        videoObj = { "video": true },
+        errBack = function(error) {
+          console.log("Video capture error: ", error.code); 
+        };
+
+    // Put video listeners into place
+    if(navigator.getUserMedia) { // Standard
+      navigator.getUserMedia(videoObj, function(stream) {
+        video.src = stream;
+        video.play();
+      }, errBack);
+    } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+      navigator.webkitGetUserMedia(videoObj, function(stream){
+        video.src = window.webkitURL.createObjectURL(stream);
+        video.play();
+      }, errBack);
+    }
+    else if(navigator.mozGetUserMedia) { // Firefox-prefixed
+      navigator.mozGetUserMedia(videoObj, function(stream){
+        video.src = window.URL.createObjectURL(stream);
+        video.play();
+      }, errBack);
+    }
+  };
+
+  Template.photo.events({
+    'click #snap': function() { // take photo
+        $('#video').toggleClass('hidden');
+        $('#canvas').toggleClass('hidden');
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        var video = document.getElementById("video");
+        context.drawImage(video, 0, 0, 640, 480);
+        $('.retake').removeClass('hidden');
+    },
+    'click .retake': function() {
+        $('#video').toggleClass('hidden');
+        $('#canvas').toggleClass('hidden');
+    }
+  });
 }
 
 if (Meteor.isServer) {

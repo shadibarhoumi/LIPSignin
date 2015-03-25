@@ -4,8 +4,9 @@
 
 <body>
   <h1>Welcome to StreetCode!</h1>
-
+  <input type="file" accept="image/*;capture=camera">
   {{> signin}}
+  {{> photo}}
 </body>
 
 <template name="hello">
@@ -22,6 +23,16 @@
 				<li>{{email}}</li>
 			{{/each}}
 		</ul>
+	</div>
+	
+</template>
+
+<template name="photo">
+	<div class="photoModal">
+		<button id="snap">Snap Photo</button>
+		<video id="video" width="640" height="480" autoplay></video>
+		<canvas id="canvas" class="hidden" width="640" height="480"></canvas>
+		<a href="#" class="retake hidden">Retake</a>
 	</div>
 </template>
 
