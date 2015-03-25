@@ -3,12 +3,25 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome to StreetCode!</h1>
 
-  {{> hello}}
+  {{> signin}}
 </body>
 
 <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
 </template>
+
+<template name="signin">
+	<div class="signinForm">
+		<input class="email" placeholder="email">
+		<button class="signinButton">Sign In</button>
+		<ul>
+			{{#each vistor}}
+				<li>{{email}}</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>
+
