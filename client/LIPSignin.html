@@ -4,18 +4,11 @@
 
 <body>
 	<img class="logo" src="img/logo_sc.png">
-
-  <h1 class="welcome">Sign in to StreetCode.</h1>
-
+	<div class="infoArea">
+		<h1 class="welcome">Sign in to StreetCode.</h1>
+	</div>
   {{> signin}}
-  {{> photo}}
-
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
 
 <template name="signin">
 	<div class="signinForm">
@@ -23,6 +16,12 @@
 		<a href="#" class="signinButton btn btn-block btn-lg btn-orange">Sign In</a>
 	</div>
 	
+</template>
+
+<template name="visitorInfo">
+		<h4>Welcome, {{email}}!</h4>
+		<img class="visitorPhoto" src="{{photo}}">
+		<h4>This is visit #{{numVisits}} for you.</h4>
 </template>
 
 <template name="photo">

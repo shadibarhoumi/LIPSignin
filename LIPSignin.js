@@ -13,15 +13,17 @@ if (Meteor.isClient) {
         var email = $('.email').val();
         // insert visitor into database
         var matches = Visitors.find({email: email}).fetch();
-        Visitors.update
+        $('.visitorContainer').remove(); // clear info area of any visitor info
         if (matches.length) { // if user exists
           var visitor = matches[0];
-          console.log("found vis: ", visitor);
           // increment number of visits
           Visitors.update(visitor._id, {$inc: {numVisits: 1}});
           visitor = Visitors.find(visitor._id).fetch()[0];
-          console.log("updated visitor: ", visitor);
-          $(".signinForm").prepend($("</p>").text("Welcome back, " + visitor.email + "! This is visit #" + visitor.numVisits + " for you!"));
+          // hide sign in message
+          $('.welcome').addClass('hidden');
+          var visitorContainer = $('<div>').attr('class', 'visitorContainer').appendTo('.infoArea')[0];
+          // insert visitor template which greets user
+          Blaze.renderWithData(Template.visitorInfo, visitor, visitorContainer);
         } else {
           // store photo
           var imageURL = document.getElementById("canvas").toDataURL();
