@@ -21,7 +21,7 @@ if (Meteor.isClient) {
           visitor = Visitors.find(visitor._id).fetch()[0];
           // hide sign in message
           $('.welcome').addClass('hidden');
-          var visitorContainer = $('<div>').attr('class', 'visitorContainer').appendTo('.infoArea')[0];
+          var visitorContainer = $('<div>').attr('class', 'visitorContainer animate').appendTo('.infoArea')[0];
           // insert visitor template which greets user
           Blaze.renderWithData(Template.visitorInfo, visitor, visitorContainer);
         } else {

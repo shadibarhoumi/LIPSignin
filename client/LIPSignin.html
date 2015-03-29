@@ -7,6 +7,7 @@
 	<div class="infoArea">
 		<h1 class="welcome">Sign in to StreetCode.</h1>
 	</div>
+	{{> signup}}
   {{> signin}}
 </body>
 
@@ -18,17 +19,37 @@
 	
 </template>
 
+<template name="signup">
+	<div class="overlay hidden">
+		<div class="signupContainer animate">
+			<p class="infoText firstVisit">Wow, this is your first visit! Please make a profile.</p>
+			<button class="closeButton">×</button>
+			<input class="form-control form-control-orange nameInput firstNameInput" placeholder="First Name">
+			<input class="form-control form-control-orange nameInput" placeholder="Last Name">
+			<input class="form-control form-control-orange emailInput" placeholder="Email">
+			{{> photo}}
+			<a href="#" class="signupButton btn btn-block btn-lg btn-orange">Sign In</a>
+		</div>
+	</div>
+</template>
+
 <template name="visitorInfo">
-		<h4>Welcome, {{email}}!</h4>
-		<img class="visitorPhoto" src="{{photo}}">
-		<h4>This is visit #{{numVisits}} for you.</h4>
+		<p class="infoText">Welcome, {{email}}!</p>
+		<div class="visitorPhoto">
+			<img src="{{photo}}">
+		</div>
+		<p class="infoText visits">This is visit #{{numVisits}} for you.</p>
 </template>
 
 <template name="photo">
-	<div class="photoModal">
-		<button id="snap">Snap Photo</button>
-		<video id="video" width="640" height="480" autoplay></video>
-		<canvas id="canvas" class="hidden" width="640" height="480"></canvas>
+	<div class="photoModal cf">
+		<div class="videoContainer">
+			<video id="video" width="640" height="480" autoplay></video>
+			<canvas id="canvas" class="hidden" width="640" height="480"></canvas>
+		</div>
+		<div class="buttonContainer">
+			<i class="snap fa fa-camera"></i>
+		</div>
 		<a href="#" class="retake hidden">Retake</a>
 	</div>
 </template>
