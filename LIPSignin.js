@@ -70,7 +70,9 @@ if (Meteor.isClient) {
     },
 
     'click .closeButton': function() {
-      $('.overlay').addClass('hidden');
+      $('.overlay').addClass('animate-reverse').delay(300).queue(function(){
+        $(this).addClass('hidden').removeClass('animate-reverse').dequeue();
+      });
       $('.welcome').removeClass('hidden');
     }
   });

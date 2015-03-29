@@ -303,12 +303,81 @@ video, canvas {
     }
 }
 
+@keyframes scale-fade-reverse {
+    0% {
+    	-webkit-transform: scale(1) rotateX(0);
+        transform: scale(1) rotateX(0);
+        
+    }
+
+    50% {
+    	-webkit-transform: scale(1.05) rotateX(0);
+        transform: scale(1.05) rotateX(0);
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(.8) rotateX(-40deg);
+        transform: scale(.8) rotateX(-40deg);
+    }
+}
+
+@-webkit-keyframes scale-fade-reverse {
+    0% {
+    	-webkit-transform: scale(1) rotateX(0);
+        transform: scale(1) rotateX(0);
+        
+    }
+
+    50% {
+    	-webkit-transform: scale(1.05) rotateX(0);
+        transform: scale(1.05) rotateX(0);
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: scale(.8) rotateX(-40deg);
+        transform: scale(.8) rotateX(-40deg);
+    }
+}
+
 .animate {
 	-webkit-transform-origin: bottom center;
  	-ms-transform-origin: bottom center;
  	transform-origin: bottom center;
  	-webkit-animation: scale-fade 300ms forwards cubic-bezier(.8, .02, .45, .91);
  	animation: scale-fade 300ms forwards cubic-bezier(.8, .02, .45, .91);
+}
+
+.animate-1 {
+ 	-webkit-animation: scale-fade 400ms forwards cubic-bezier(.8, .02, .45, .91);
+ 	animation: scale-fade 400ms forwards cubic-bezier(.8, .02, .45, .91);
+}
+
+.animate-2 {
+ 	-webkit-animation: scale-fade 500ms forwards cubic-bezier(.8, .02, .45, .91);
+ 	animation: scale-fade 500ms forwards cubic-bezier(.8, .02, .45, .91);
+}
+
+.animate-3 {
+ 	-webkit-animation: scale-fade 600ms forwards cubic-bezier(.8, .02, .45, .91);
+ 	animation: scale-fade 600ms forwards cubic-bezier(.8, .02, .45, .91);
+}
+
+.animate-reverse {
+	-webkit-transform-origin: bottom center;
+ 	-ms-transform-origin: bottom center;
+ 	transform-origin: bottom center;
+ 	-webkit-animation: scale-fade-reverse 300ms forwards cubic-bezier(.8, .02, .45, .91);
+ 	animation: scale-fade-reverse 300ms forwards cubic-bezier(.8, .02, .45, .91);
 }
 
 /*Clearfix*/

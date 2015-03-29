@@ -21,13 +21,13 @@
 
 <template name="signup">
 	<div class="overlay hidden">
-		<div class="signupContainer animate">
-			<p class="infoText firstVisit">Wow, this is your first visit! Please make a profile.</p>
+		<div class="signupContainer">
+			<p class="infoText firstVisit animate">Wow, this is your first visit! Please make a profile.</p>
 			<button class="closeButton">×</button>
 			
 			<div class="signupFormContainer cf">
 
-				<div class="signupForm">
+				<div class="signupForm animate animate-1">
 					<input class="form-control form-control-orange nameInput firstNameInput" placeholder="First Name">
 					<input class="form-control form-control-orange nameInput lastNameInput" placeholder="Last Name">
 					<input class="form-control form-control-orange emailInput" placeholder="Email">
@@ -37,21 +37,21 @@
 
 			</div>
 
-			<a href="#" class="signupButton btn btn-block btn-lg btn-orange">Sign In</a>
+			<a href="#" class="signupButton btn btn-block btn-lg btn-orange animate animate-3">Sign In</a>
 		</div>
 	</div>
 </template>
 
 <template name="visitorInfo">
-		<p class="infoText">Welcome, {{firstName}}!</p>
-		<div class="visitorPhoto">
+		<p class="infoText animate animate-2">Welcome, {{firstName}}!</p>
+		<div class="visitorPhoto animate animate-1">
 			<img src="{{photo}}">
 		</div>
-		<p class="infoText visits">This is visit #{{numVisits}} for you.</p>
+		<p class="infoText visits animate animate-3">This is visit #{{numVisits}} for you.</p>
 </template>
 
 <template name="photo">
-	<div class="photoModal cf">
+	<div class="photoModal cf animate animate-2">
 		<div class="videoContainer">
 			<video id="video" width="400" height="300" autoplay></video>
 			<canvas id="canvas" class="hidden" width="400" height="300"></canvas>
