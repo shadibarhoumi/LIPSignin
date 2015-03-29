@@ -25,20 +25,53 @@ if (Meteor.isClient) {
           // insert visitor template which greets user
           Blaze.renderWithData(Template.visitorInfo, visitor, visitorContainer);
         } else {
-          // store photo
-          var imageURL = document.getElementById("canvas").toDataURL();
-          // create new user
-          Visitors.insert({ 
-            email: email,
-            numVisits: 1,
-            photo: imageURL,
-            createdAt: new Date()
-          });
-          $(".signinForm").prepend($("</p>").text("Welcome, " + email + "! This is your first visit."));
+          $('.overlay').removeClass('hidden');
+          $('.emailInput').val($('.email').val());
+          $('.firstNameInput').focus();
         }
         $('.email').val('');
         e.preventDefault();
       }
+    }
+  });
+
+  Template.signup.events({
+    'click .signupButton': function() {
+      var email = $('.emailInput').val();
+      var firstName = $('.firstNameInput').val();
+      var lastName = $('.lastNameInput').val();
+      // store photo
+      var imageURL = document.getElementById("canvas").toDataURL();
+      // create new user
+      var visitorId = Visitors.insert({ 
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        numVisits: 1,
+        photo: imageURL,
+        createdAt: new Date()
+      });
+      var visitor = Visitors.find(visitorId).fetch()[0];
+      // hide sign in message
+      $('.welcome').addClass('hidden');
+      $('.overlay').addClass('hidden');
+      var visitorContainer = $('<div>').attr('class', 'visitorContainer animate').appendTo('.infoArea')[0];
+      // insert visitor template which greets user
+      Blaze.renderWithData(Template.visitorInfo, visitor, visitorContainer);
+
+      // clear form fields
+      $('.emailInput').val('');
+      $('.firstNameInput').val('');
+      $('.lastNameInput').val('');
+      $('#video').toggleClass('hidden');
+      $('#canvas').toggleClass('hidden');
+      $('.takePhoto').toggleClass('hidden');
+      $('.clearPhoto').toggleClass('hidden');
+    },
+
+    'click .closeButton': function() {
+      $('.overlay').addClass('hidden');
+      $('.welcome').removeClass('hidden');
     }
   });
 
@@ -72,20 +105,25 @@ if (Meteor.isClient) {
   };
 
   Template.photo.events({
-    'click #snap': function() { // take photo
+    'click .snap': function() { // take photo
         $('#video').toggleClass('hidden');
         $('#canvas').toggleClass('hidden');
         var canvas = document.getElementById("canvas");
         var context = canvas.getContext("2d");
         var video = document.getElementById("video");
-        context.drawImage(video, 0, 0, 640, 480);
-        $('.retake').removeClass('hidden');
+        context.drawImage(video, 0, 0, 400, 300);
+        $('.snap').toggleClass('fa-camera');
+        $('.snap').toggleClass('fa-times-circle');
+        $('.takePhoto').toggleClass('hidden');
+        $('.clearPhoto').toggleClass('hidden');
+
     },
     'click .retake': function() {
         $('#video').toggleClass('hidden');
         $('#canvas').toggleClass('hidden');
     }
   });
+
 }
 
 if (Meteor.isServer) {

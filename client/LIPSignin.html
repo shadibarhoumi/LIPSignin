@@ -24,17 +24,26 @@
 		<div class="signupContainer animate">
 			<p class="infoText firstVisit">Wow, this is your first visit! Please make a profile.</p>
 			<button class="closeButton">×</button>
-			<input class="form-control form-control-orange nameInput firstNameInput" placeholder="First Name">
-			<input class="form-control form-control-orange nameInput" placeholder="Last Name">
-			<input class="form-control form-control-orange emailInput" placeholder="Email">
-			{{> photo}}
+			
+			<div class="signupFormContainer cf">
+
+				<div class="signupForm">
+					<input class="form-control form-control-orange nameInput firstNameInput" placeholder="First Name">
+					<input class="form-control form-control-orange nameInput lastNameInput" placeholder="Last Name">
+					<input class="form-control form-control-orange emailInput" placeholder="Email">
+				</div>
+
+				{{> photo}}
+
+			</div>
+
 			<a href="#" class="signupButton btn btn-block btn-lg btn-orange">Sign In</a>
 		</div>
 	</div>
 </template>
 
 <template name="visitorInfo">
-		<p class="infoText">Welcome, {{email}}!</p>
+		<p class="infoText">Welcome, {{firstName}}!</p>
 		<div class="visitorPhoto">
 			<img src="{{photo}}">
 		</div>
@@ -44,13 +53,14 @@
 <template name="photo">
 	<div class="photoModal cf">
 		<div class="videoContainer">
-			<video id="video" width="640" height="480" autoplay></video>
-			<canvas id="canvas" class="hidden" width="640" height="480"></canvas>
+			<video id="video" width="400" height="300" autoplay></video>
+			<canvas id="canvas" class="hidden" width="400" height="300"></canvas>
 		</div>
 		<div class="buttonContainer">
 			<i class="snap fa fa-camera"></i>
+			<p class="takePhoto">Take Photo</p>
+			<p class="clearPhoto hidden">Clear Photo</p>
 		</div>
-		<a href="#" class="retake hidden">Retake</a>
 	</div>
 </template>
 
