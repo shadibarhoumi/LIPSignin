@@ -54,6 +54,7 @@ body {
 
 }
 
+
 .signinButton {
 	display: inline;
 	margin-top: 50px;
@@ -233,6 +234,10 @@ video, canvas {
 /* Flat UI Overrides */
 .form-control-orange:focus {
   border-color: #F27030;
+}
+
+.form-control-red:focus {
+	border-color: #F60F0F;
 }
 
 .form-control {
