@@ -12,13 +12,18 @@ body {
 	font-weight: lighter;
 	text-align: center;
   	font-size: 50px;
-  	margin-top: 200px;
+  	margin-top: 30%;
+  	margin-bottom: 30%;
   	color: #555;
 }
 
 .infoArea {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 50%;
+	margin-left: -300px;
 	width: 600px;
-  	margin: 0 auto;
   	text-align: center;
 }
 
@@ -39,11 +44,7 @@ body {
 }
 
 .signinForm {
-	position: absolute;
-	width: 548px;
-	left: 50%;
-	margin-left: -278px;
-	bottom: 70px;
+	margin-bottom: 20px;
 }
 
 .email {
